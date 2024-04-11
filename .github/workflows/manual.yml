@@ -39,4 +39,5 @@ jobs:
                           mongosh --version
                   - run: mongosh -u root -p example ./mongo-init.js
                   - run: npm install
-                  - run: npm run test
+                  - run: npm run test:secuencial:silent
+                  - run: npm run test:secuencial
