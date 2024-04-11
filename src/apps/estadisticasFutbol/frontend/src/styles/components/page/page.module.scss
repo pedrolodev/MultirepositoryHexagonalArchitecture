@@ -1,0 +1,22 @@
+@import '../../themes/themes.module.scss';
+
+.container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  &.dark {
+    background-color: $main_dk;
+    color: $maintxt_dk;
+  }
+  &.light {
+    background-color: $main_lg;
+    color: $maintxt_lg;
+  }
+}
+
+@media (max-width: 767px) and (orientation: portrait),
+  (max-width: 1023px) and (orientation: landscape) {
+  .container {
+    flex-direction: column;
+  }
+}

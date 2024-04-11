@@ -1,0 +1,15 @@
+services:
+      radio.shared.mongoConfig:
+            factory:
+                  class: '../../../../Contexts/Radio/shared/infraestructure/persistence/mongoConfigFactory'
+                  method: 'createConfig'
+
+      radio.shared.mongoClient:
+            arguments: ['radio', '@radio.shared.mongoConfig']
+            factory:
+                  class: '../../../../Contexts/shared/infraestructure/persistence/mongo/MongoClientFactory'
+                  method: 'createClient'
+
+      radio.station.repository:
+            class: '../../../../Contexts/Radio/Stations/infraestructure/persistence/MongoStationRepository'
+            arguments: ['@radio.shared.mongoClient']

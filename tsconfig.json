@@ -1,0 +1,32 @@
+{
+      "compilerOptions": {
+            "experimentalDecorators": true,
+            "module": "CommonJS",
+            "esModuleInterop": true,
+            "target": "ES6",
+            "noImplicitAny": true,
+            "moduleResolution": "node",
+            "sourceMap": false,
+            "rootDir": ".",
+            "strict": true,
+            "noEmit": false,
+            "resolveJsonModule": true,
+            "noUnusedLocals": true,
+            "outDir": "./dist",
+            "baseUrl": ".",
+            "paths": {
+                  "@/*": ["src/apps/estadisticasFutbol/frontend/src/*"],
+                  "@src/*": ["src/*"],
+                  "@test/*": ["test/*"]
+            }
+      },
+      "include": [
+            "src/**/**.ts",
+            "test/**/**.ts",
+            "src/apps/estadisticasFutbol/frontend/src/lib/grafico/groupByDataType"
+      ],
+      "exclude": [],
+      "ts-node": {
+            "require": ["tsconfig-paths/register"]
+      }
+}

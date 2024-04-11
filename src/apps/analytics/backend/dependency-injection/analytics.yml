@@ -1,0 +1,19 @@
+services:
+      analytics.shared.mongoConfig:
+            factory:
+                  class: '../../../../Contexts/Analytics/shared/infraestructure/persistence/mongoConfigFactory'
+                  method: 'createConfig'
+
+      analytics.shared.mongoClient:
+            arguments: ['analytics', '@analytics.shared.mongoConfig']
+            factory:
+                  class: '../../../../Contexts/shared/infraestructure/persistence/mongo/MongoClientFactory'
+                  method: 'createClient'
+
+      analytics.logs.repository:
+            class: '../../../../Contexts/Analytics/Logs/infraestructure/persistence/MongoLogsRepository'
+            arguments: ['@analytics.shared.mongoClient']
+
+      analytics.shared.environmentArranger:
+            class: '../../../../../test/Contexts/shared/infraestructure/persistence/mongo/MongoEnvironmentArranger'
+            arguments: ['@analytics.shared.mongoClient']

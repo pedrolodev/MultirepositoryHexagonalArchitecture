@@ -1,0 +1,14 @@
+.footer {
+      background-color: var(--primary);
+      border-top: 1px solid var(--secondary);
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 2vw;
+      padding-left: 2vw;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      bottom: 0;
+      height: 5%;
+      text-align: end;
+}

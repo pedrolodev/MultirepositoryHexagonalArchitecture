@@ -1,0 +1,19 @@
+services:
+      auth.shared.mongoConfig:
+            factory:
+                  class: '../../../../Contexts/Auth/shared/infraestructure/persistence/mongoConfigFactory'
+                  method: 'createConfig'
+
+      auth.shared.mongoClient:
+            arguments: ['auth', '@auth.shared.mongoConfig']
+            factory:
+                  class: '../../../../Contexts/shared/infraestructure/persistence/mongo/MongoClientFactory'
+                  method: 'createClient'
+
+      auth.user.repository:
+            class: '../../../../Contexts/Auth/Users/infraestructure/persistence/MongoUserRepository'
+            arguments: ['@auth.shared.mongoClient']
+
+      auth.shared.environmentArranger:
+            class: '../../../../../test/Contexts/shared/infraestructure/persistence/mongo/MongoEnvironmentArranger'
+            arguments: ['@auth.shared.mongoClient']

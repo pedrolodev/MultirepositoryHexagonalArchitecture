@@ -1,0 +1,1 @@
+{ "mongo": { "url": "mongodb://developer:developer123@localhost:27017/dev" } }

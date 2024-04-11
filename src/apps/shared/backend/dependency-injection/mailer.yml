@@ -1,0 +1,3 @@
+services:
+      shared.mailer:
+            class: '../../../../Contexts/shared/infraestructure/mailer/nodemailer/NodemailerMailer'

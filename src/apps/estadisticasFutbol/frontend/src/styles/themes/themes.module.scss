@@ -1,0 +1,21 @@
+@import './themeDark.module.scss';
+@import './themeLight.module.scss';
+
+$color_variants: (
+  light: (
+    main: $main_lg,
+    secondary: $secondary_lg,
+    tertiary: $tertiary_lg,
+    maintxt: $maintxt_lg,
+    highlight: $highlight_lg,
+    highlighttxt: $highlighttxt_lg,
+  ),
+  dark: (
+    main: $main_dk,
+    secondary: $secondary_dk,
+    tertiary: $tertiary_dk,
+    maintxt: $maintxt_dk,
+    highlight: $highlight_dk,
+    highlighttxt: $highlighttxt_dk,
+  ),
+);

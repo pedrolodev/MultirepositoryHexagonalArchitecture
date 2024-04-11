@@ -1,0 +1,25 @@
+@import '../../../themes/themes.module.scss';
+
+.container_button {
+  display: flex;
+  width: 100%;
+  cursor: pointer;
+  justify-content: center;
+  border-radius: 4px;
+  margin-top: 5px;
+  @each $variant, $colors in $color_variants {
+    &.#{$variant} {
+      background-color: map-get($colors, secondary);
+      color: map-get($colors, maintxt);
+
+      &:hover {
+        background-color: map-get($colors, highlight);
+        color: map-get($colors, highlighttxt);
+      }
+    }
+  }
+}
+
+.button {
+  padding: 5%;
+}

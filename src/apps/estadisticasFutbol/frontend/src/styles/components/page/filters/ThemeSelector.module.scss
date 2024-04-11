@@ -1,0 +1,58 @@
+@import '../../../themes/themes.module.scss';
+
+.theme_selector_container {
+  position: relative;
+  height: 95%;
+  padding: 0.1rem;
+  cursor: pointer;
+  @each $variant, $colors in $color_variants {
+    &.#{$variant} {
+      background-color: none;
+      color: map-get($colors, maintxt);
+      &:hover {
+        background-color: map-get($colors, secondary);
+        border: 1px solid map-get($colors, maintxt);
+      }
+    }
+  }
+}
+
+.theme_selector_menu {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  top: 100%;
+  left: 0;
+  @each $variant, $colors in $color_variants {
+    &.#{$variant} {
+      background-color: map-get($colors, tertiary);
+      border: 1px solid map-get($colors, maintxt);
+    }
+  }
+  z-index: 1;
+}
+
+.theme_selector_item {
+  padding: 1rem;
+  @each $variant, $colors in $color_variants {
+    &.#{$variant} {
+      color: 1px solid map-get($colors, maintxt);
+      &:hover {
+        background-color: map-get($colors, highlight);
+        color: map-get($colors, highlighttxt);
+      }
+    }
+  }
+}
+
+.theme_selector_menu button {
+  display: block;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.theme_selector_menu button:last-child {
+  margin-bottom: 0;
+}

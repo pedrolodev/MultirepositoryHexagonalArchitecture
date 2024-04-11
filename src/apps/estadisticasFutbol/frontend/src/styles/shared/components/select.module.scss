@@ -1,0 +1,60 @@
+@import '../../themes/themes.module.scss';
+
+@each $variant, $colors in $color_variants {
+  .#{$variant} {
+    [class$='-control'] {
+      background-color: map-get($colors, main);
+      border: 1px solid rgb(map-get($colors, secondary), 0.5);
+      box-shadow: none;
+    }
+
+    [class$='-control']:hover {
+      border-color: map-get($colors, highlight);
+    }
+
+    [class$='-menu'] {
+      background-color: map-get($colors, main);
+    }
+
+    [class$='-singleValue'] {
+      color: map-get($colors, maintxt);
+    }
+
+    [class$='-multiValue'] {
+      background-color: map-get($colors, main);
+    }
+
+    [class$='-MultiValueGeneric'] {
+      background-color: map-get($colors, secondary);
+      color: map-get($colors, maintxt);
+    }
+
+    [class$='-MultiValueRemove'] {
+      background-color: map-get($colors, tertiary);
+      color: map-get($colors, maintxt);
+    }
+
+    [class$='-MultiValueRemove']:hover {
+      background-color: map-get($colors, highlight);
+      color: map-get($colors, highlighttxt);
+    }
+
+    [class$='-placeholder'] {
+      color: map-get($colors, maintxt);
+    }
+
+    [class$='-option'] {
+      background-color: map-get($colors, main);
+      color: map-get($colors, maintxt);
+      border-left: 1px solid map-get($colors, tertiary);
+      border-top: 0.5px solid map-get($colors, tertiary);
+      border-right: 0.5px solid map-get($colors, tertiary);
+      border-bottom: 1px solid map-get($colors, tertiary);
+    }
+
+    [class$='-option']:hover {
+      background-color: map-get($colors, secondary);
+      color: map-get($colors, maintxt);
+    }
+  }
+}

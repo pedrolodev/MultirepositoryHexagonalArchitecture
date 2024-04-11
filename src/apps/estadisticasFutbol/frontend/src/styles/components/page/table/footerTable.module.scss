@@ -1,0 +1,18 @@
+.container_pagination_buttons {
+  flex: 2;
+}
+
+.page_size {
+  flex: 1;
+}
+
+.column_selection {
+  flex: 1;
+}
+
+@media (max-width: 767px) and (orientation: portrait),
+  (max-width: 1023px) and (orientation: landscape) {
+  .rows {
+    display: none;
+  }
+}

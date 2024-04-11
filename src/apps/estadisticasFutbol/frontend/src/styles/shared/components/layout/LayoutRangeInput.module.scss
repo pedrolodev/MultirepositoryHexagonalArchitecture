@@ -1,0 +1,42 @@
+@import '../../../themes/themes.module.scss';
+
+.container_range_input {
+  padding: 2px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  @each $variant, $colors in $color_variants {
+    &.#{$variant} {
+      border: 1px solid rgb(map-get($colors, secondary), 0.5);
+      &:hover {
+        border: 1px solid map-get($colors, highlight);
+      }
+    }
+  }
+
+  > div {
+    width: 100%;
+    display: flex;
+    > input {
+      flex-grow: 1;
+      width: inherit;
+    }
+    > span {
+      display: flex;
+      flex-grow: 0;
+      white-space: nowrap;
+    }
+  }
+}
+
+.header_range_input {
+  margin-bottom: 5%;
+  padding: 2px 8px;
+  font-weight: 500;
+  @each $variant, $colors in $color_variants {
+    &.#{$variant} {
+      color: map-get($colors, text);
+      border-bottom: 1px solid rgb(map-get($colors, secondary), 0.5);
+    }
+  }
+}

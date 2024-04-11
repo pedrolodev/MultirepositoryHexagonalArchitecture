@@ -1,0 +1,11 @@
+@import '../../themes/themes.module.scss';
+
+@each $variant, $colors in $color_variants {
+  .#{$variant} {
+    accent-color: map-get($colors, secondary);
+
+    &:hover {
+      accent-color: map-get($colors, highlight);
+    }
+  }
+}

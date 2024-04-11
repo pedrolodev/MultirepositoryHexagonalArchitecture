@@ -1,0 +1,128 @@
+.container {
+      width: 98vw;
+      height: 90vh;
+      padding: 16vh;
+      background-color: var(--secondary);
+      display: flex;
+      flex-direction: row;
+      gap: 2vw;
+      overflow-x: hidden;
+      position: relative;
+}
+
+.input_group {
+      padding: 2vw;
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      border: 1px solid white;
+      right: 30vw;
+      opacity: 0;
+      transition: right 0.5s ease, opacity 0.5s ease;
+}
+
+.visible {
+      right: 0vw;
+      opacity: 1;
+}
+
+.input,
+.input_textarea {
+      outline: 1px solid white;
+      background: transparent;
+      color: var(--highlight);
+      border: none;
+      font-family: 'Source Sans Pro', sans-serif;
+      margin-bottom: 10px;
+      border-radius: 5px;
+}
+.input {
+      height: 32px;
+      width: 100%;
+      padding: 0 10px;
+}
+.input_textarea {
+      width: 100%;
+      padding: 10px 10px;
+      height: 100%;
+}
+
+.input:focus,
+.input_textarea:focus {
+      border: none;
+      outline: 1px solid var(--highlight);
+      background-color: transparent;
+}
+
+.error {
+      outline: 1px solid red !important;
+}
+
+.button {
+      width: 100%;
+      padding: 0.5em;
+      background: transparent;
+      border-color: white;
+      border-radius: 6px;
+      color: #dcf4ff;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 700;
+      font-size: 1.2em;
+      letter-spacing: 2px;
+      margin-bottom: 1em;
+      transition: all 500ms ease-in;
+}
+.button:hover {
+      background-color: var(--highlight);
+      color: black;
+      transition: all 0.5s ease-in-out;
+      cursor: pointer;
+}
+
+.contact_alternative {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+      height: 100%;
+}
+
+.tarjeta {
+      background-color: transparent;
+      border: 1px solid white;
+      padding: 10px;
+      width: 100%;
+      height: 100%;
+      position: relative;
+      right: 0vw;
+      transition: right 0.5s ease, opacity 0.5s ease;
+}
+
+.tarjeta_no_visible {
+      right: -110vw;
+      transition: right 0.5s ease, opacity 0.5s ease;
+}
+
+.titulo {
+      font-size: 18px;
+      margin-top: 0;
+}
+
+.correoElectronico {
+      font-size: 16px;
+      margin-bottom: 0;
+}
+
+@media only screen and (max-width: 600px) {
+      .container {
+            flex-direction: column;
+            padding: 5vw;
+            width: 100vw;
+      }
+
+      .contact_alternative {
+            height: auto;
+      }
+}

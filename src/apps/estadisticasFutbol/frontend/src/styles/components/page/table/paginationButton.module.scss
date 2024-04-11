@@ -1,0 +1,20 @@
+@import '../../../themes/themes.module.scss';
+
+.pagination_button {
+  border-radius: 10%;
+  cursor: pointer;
+  @each $variant, $colors in $color_variants {
+    &.#{$variant} {
+      border: 1px solid map-get($colors, secondary);
+      background-color: map-get($colors, main);
+
+      &:hover:not(:disabled) {
+        background-color: map-get($colors, highlight);
+      }
+
+      &:disabled {
+        background-color: rgb(99, 99, 99);
+      }
+    }
+  }
+}

@@ -1,0 +1,49 @@
+.header {
+      background-color: var(--secondary);
+      width: 100%;
+      transition: all ease-out 0.5s;
+      display: flex;
+      justify-content: center;
+      position: sticky;
+      z-index: 9;
+      top: 0;
+      height: 10vh;
+      border-bottom: 1px solid darkorange;
+}
+
+.nav {
+      display: flex;
+      height: 100%;
+      white-space: nowrap;
+      width: 90%;
+}
+
+.link {
+      display: flex;
+      justify-content: center;
+      height: 100%;
+      text-decoration: none;
+      width: 100%;
+      padding: 2px;
+      color: var(--primary-text);
+      font-weight: bold;
+      transition: color 0.4s ease;
+}
+
+.link:hover {
+      color: var(--highlight-text);
+      background-color: var(--highlight);
+}
+
+.link > div {
+      display: flex;
+      align-items: center;
+}
+
+.active_link {
+      background: linear-gradient(
+            to bottom,
+            var(--highlight) 1%,
+            rgba(0, 0, 0, 0)
+      );
+}

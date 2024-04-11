@@ -1,0 +1,42 @@
+name: Test App
+
+on:
+      pull_request:
+      workflow_dispatch:
+      push:
+            branches: [main]
+      deployment:
+
+jobs:
+      unit-test:
+            name: Run Tests
+            runs-on: ubuntu-latest
+            services:
+                  mongodb:
+                        image: mongo:4.4.6
+                        env:
+                              MONGO_INITDB_ROOT_USERNAME: root
+                              MONGO_INITDB_ROOT_PASSWORD: example
+                              MONGO_INITDB_DATABASE: test
+                        ports:
+                              - 27017:27017
+                        options: --health-cmd mongo
+                              --health-interval 10s
+                              --health-timeout 5s
+                              --health-retries 5
+            steps:
+                  - uses: actions/checkout@v2
+                  - uses: actions/setup-node@v1
+                    with:
+                          node-version: '18'
+
+                  - run: |
+                          sudo apt-get install gnupg
+                          wget -qO- https://www.mongodb.org/static/pgp/server-7.0.asc | sudo tee /etc/apt/trusted.gpg.d/server-7.0.asc
+                          echo "deb [ arch=amd64,arm64 ] https://repo.mongodb.org/apt/ubuntu focal/mongodb-org/7.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-7.0.list
+                          sudo apt-get update
+                          sudo apt-get install -y mongodb-mongosh
+                          mongosh --version
+                  - run: mongosh -u root -p example ./mongo-init.js
+                  - run: npm install
+                  - run: npm run test

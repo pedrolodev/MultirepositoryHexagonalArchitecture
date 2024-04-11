@@ -1,0 +1,68 @@
+@import '../../themes/themes.module.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.container_table {
+  height: 80%;
+  margin: 1%;
+  width: 98%;
+  overflow: auto;
+}
+
+.table {
+  height: 100%;
+  min-width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.table th,
+.table td {
+  text-align: center;
+  white-space: nowrap;
+  padding: 10px;
+}
+
+.container_pagination {
+  display: flex;
+  align-items: center;
+  height: 5%;
+  margin: 1%;
+  width: 98%;
+  flex-direction: row;
+}
+
+.row {
+  @each $variant, $colors in $color_variants {
+    &.#{$variant} {
+      &:nth-child(even) {
+        background-color: map-get($colors, secondary);
+      }
+    }
+  }
+}
+
+.table_header {
+  @each $variant, $colors in $color_variants {
+    &.#{$variant} {
+      background-color: map-get($colors, tertiary);
+    }
+  }
+}
+
+.row {
+  @each $variant, $colors in $color_variants {
+    &.#{$variant} {
+      &:hover {
+        background-color: map-get($colors, highlight);
+      }
+    }
+  }
+}

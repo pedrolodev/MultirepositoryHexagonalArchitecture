@@ -1,0 +1,10 @@
+@import '../themes/themes.module.scss';
+
+.content {
+  &.light {
+    background-color: $main_lg;
+  }
+  &.dark {
+    background-color: $main_dk;
+  }
+}
