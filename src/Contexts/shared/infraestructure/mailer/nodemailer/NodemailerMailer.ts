@@ -1,5 +1,5 @@
 // nodemailer.mailer.ts
-import { Mailer } from '@src/Contexts/shared/domain/Mailer'
+import { Mailer } from '../../../../../../src/Contexts/shared/domain/Mailer'
 import * as nodemailer from 'nodemailer'
 
 export class NodemailerMailer implements Mailer {

@@ -1,5 +1,3 @@
-import 'server-only'
-
 import AudioPlayer from './components/audioPlayer'
 import styles from './page.module.css'
 import getStations from '../../../services/api/getStations'

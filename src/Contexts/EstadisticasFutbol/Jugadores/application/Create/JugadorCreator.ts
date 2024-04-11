@@ -15,7 +15,7 @@ export class JugadorCreator {
       async run(params: JugadorPrimitives): Promise<void> {
             const { id, idAntiguo, name } = params
 
-            if (await this.jugadorFinder.exist({ name }))
+            if (await this.jugadorFinder.exist({ idAntiguo }))
                   throw new JugadorExists()
 
             const jugadorId = new JugadorId(id)

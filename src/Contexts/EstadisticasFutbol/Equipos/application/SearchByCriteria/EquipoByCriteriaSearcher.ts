@@ -1,4 +1,4 @@
-import { FilterOptions } from '@src/Contexts/shared/domain/criteria/filter/FilterFactory'
+import { FilterOptions } from '../../../../../../src/Contexts/shared/domain/criteria/filter/FilterFactory'
 import { Criteria } from '../../../../shared/domain/criteria/Criteria'
 import { Filters } from '../../../../shared/domain/criteria/filter/Filters'
 import {

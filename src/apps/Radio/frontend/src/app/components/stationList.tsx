@@ -1,4 +1,3 @@
-import 'server-only'
 import Link from 'next/link'
 import styles from './stationList.module.css'
 import getStations from '../services/api/getStations'

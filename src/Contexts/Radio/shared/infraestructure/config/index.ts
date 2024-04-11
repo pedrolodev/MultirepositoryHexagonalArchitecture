@@ -11,11 +11,12 @@ const radioConfig = convict({
             url: {
                   doc: 'The Mongo connection URL',
                   format: String,
-                  env: 'MONGO_URL_PRODUCTION',
+                  env: 'MONGO_URL',
                   default: ''
             }
       }
 })
 
-radioConfig.loadFile(__dirname + '/' + process.env.NODE_ENV + '.json')
+radioConfig.load({ mongo: { url: '' } })
+// radioConfig.loadFile(__dirname + '/' + process.env.NODE_ENV + '.json')
 export default radioConfig

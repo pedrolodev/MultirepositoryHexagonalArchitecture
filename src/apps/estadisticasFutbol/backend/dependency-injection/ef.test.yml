@@ -1,0 +1,59 @@
+services:
+      ef.shared.mongoConfig:
+            factory:
+                  class: '../../../../Contexts/EstadisticasFutbol/shared/infraestructure/persistence/mongoConfigFactory'
+                  method: 'createConfig'
+
+      ef.shared.mongoClient:
+            arguments: ['ef', '@ef.shared.mongoConfig']
+            factory:
+                  class: '../../../../Contexts/shared/infraestructure/persistence/mongo/MongoClientFactory'
+                  method: 'createClient'
+
+      ef.partido.mapper:
+            class: '../../../../Contexts/EstadisticasFutbol/Partidos/domain/MapperPartido'
+
+      ef.partido.repository:
+            class: '../../../../Contexts/EstadisticasFutbol/Partidos/infraestructure/persistence/MongoPartidoRepository'
+            arguments:
+                  ['@ef.shared.mongoClient', '@ef.partido.mapper', 'Partidos']
+
+      ef.jugador.mapper:
+            class: '../../../../Contexts/EstadisticasFutbol/Jugadores/domain/MapperJugador'
+
+      ef.jugador.repository:
+            class: '../../../../Contexts/EstadisticasFutbol/Jugadores/infraestructure/persistence/MongoJugadorRepository'
+            arguments:
+                  ['@ef.shared.mongoClient', '@ef.jugador.mapper', 'Jugadores']
+
+      ef.equipo.mapper:
+            class: '../../../../Contexts/EstadisticasFutbol/Equipos/domain/MapperEquipo'
+
+      ef.equipo.repository:
+            class: '../../../../Contexts/EstadisticasFutbol/Equipos/infraestructure/persistence/MongoEquipoRepository'
+            arguments:
+                  ['@ef.shared.mongoClient', '@ef.equipo.mapper', 'Equipos']
+
+      ef.equipo.service.searcher:
+            class: '../../../../Contexts/EstadisticasFutbol/Equipos/domain/services/TeamFinder'
+            arguments: ['@ef.equipo.repository']
+
+      ef.jugador.service.searcher:
+            class: '../../../../Contexts/EstadisticasFutbol/Jugadores/domain/services/JugadorFinder'
+            arguments: ['@ef.jugador.repository']
+
+      ef.shared.environmentArranger:
+            class: '../../../../../test/Contexts/shared/infraestructure/persistence/mongo/MongoEnvironmentArranger'
+            arguments: ['@ef.shared.mongoClient']
+
+      ef.partidos.arranger:
+            class: '../../../../../test/Contexts/EstadisticasFutbol/Partidos/infraestructure/persistence/mongo/PartidoMongoArranger'
+            arguments: ['@ef.partido.repository']
+
+      ef.equipos.arranger:
+            class: '../../../../../test/Contexts/EstadisticasFutbol/Equipos/infraestructure/persistence/mongo/EquipoMongoArranger'
+            arguments: ['@ef.equipo.repository']
+
+      ef.jugadores.arranger:
+            class: '../../../../../test/Contexts/EstadisticasFutbol/Jugadores/infraestructure/persistence/mongo/JugadorMongoArranger'
+            arguments: ['@ef.jugador.repository']

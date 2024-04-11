@@ -1,4 +1,4 @@
-import { Repository } from '@src/Contexts/shared/domain/Repository'
+import { Repository } from '../../../../../../src/Contexts/shared/domain/Repository'
 import { Log, LogPrimitives } from '../../domain/Log'
 import { LogId } from '../../domain/LogId'
 import { LogIp } from '../../domain/LogIp'

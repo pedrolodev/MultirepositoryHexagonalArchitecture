@@ -9,7 +9,7 @@ import { OrderCategory } from '../../../../shared/domain/criteria/order/OrderCat
 import { Repository } from '../../../../shared/domain/Repository'
 import { Partido } from '../../domain/Partido'
 import { PartidoNotFound } from '../../domain/errors/PartidoNotFound.error'
-import { FilterOptions } from '@src/Contexts/shared/domain/criteria/filter/FilterFactory'
+import { FilterOptions } from '../../../../../../src/Contexts/shared/domain/criteria/filter/FilterFactory'
 
 export class PartidosByCriteriaSearcher {
       constructor(private repository: Repository<Partido>) {}

@@ -1,10 +1,10 @@
-import { Criteria } from '@src/Contexts/shared/domain/criteria/Criteria'
+import { Criteria } from '../../../../../../src/Contexts/shared/domain/criteria/Criteria'
 import {
       MongoRepository,
       mongoDocument
 } from '../../../../shared/infraestructure/persistence/mongo/MongoRepository'
 import { Log, LogPrimitives } from '../../domain/Log'
-import { Repository } from '@src/Contexts/shared/domain/Repository'
+import { Repository } from '../../../../../../src/Contexts/shared/domain/Repository'
 
 export type LogDocument = Omit<LogPrimitives, 'id'> & mongoDocument
 

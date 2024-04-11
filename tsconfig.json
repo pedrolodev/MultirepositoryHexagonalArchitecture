@@ -1,6 +1,6 @@
 {
       "compilerOptions": {
-            "experimentalDecorators": true,
+            "experimentalDecorators": false,
             "module": "CommonJS",
             "esModuleInterop": true,
             "target": "ES6",
@@ -23,9 +23,10 @@
       "include": [
             "src/**/**.ts",
             "test/**/**.ts",
-            "src/apps/estadisticasFutbol/frontend/src/lib/grafico/groupByDataType"
+            "src/apps/estadisticasFutbol/frontend/src/lib/grafico/groupByDataType",
+            "api/index.js"
       ],
-      "exclude": [],
+      "exclude": ["**/frontend/*"],
       "ts-node": {
             "require": ["tsconfig-paths/register"]
       }

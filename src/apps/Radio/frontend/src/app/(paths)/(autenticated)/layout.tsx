@@ -1,4 +1,3 @@
-import 'server-only'
 import { ReactNode } from 'react'
 import Login from './components/login'
 

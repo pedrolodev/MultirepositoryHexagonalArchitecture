@@ -9,7 +9,7 @@ import { OrderCategory } from '../../../../shared/domain/criteria/order/OrderCat
 import { Repository } from '../../../../shared/domain/Repository'
 import { Jugador } from '../../domain/Jugador'
 import { JugadorNotExist } from '../../domain/errors/JugadorNotExist.error'
-import { FilterOptions } from '@src/Contexts/shared/domain/criteria/filter/FilterFactory'
+import { FilterOptions } from '../../../../../../src/Contexts/shared/domain/criteria/filter/FilterFactory'
 
 export class JugadorByCriteriaSearcher {
       constructor(private repository: Repository<Jugador>) {}

@@ -1,4 +1,4 @@
-import { Repository } from '@src/Contexts/shared/domain/Repository'
+import { Repository } from '../../../../../../src/Contexts/shared/domain/Repository'
 import { User, UserPrimitives } from '../../domain/User'
 import { UserId } from '../../domain/UserId'
 import { UserUsername } from '../../domain/UserUsername'

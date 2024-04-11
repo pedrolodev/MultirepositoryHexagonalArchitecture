@@ -1,13 +1,13 @@
 import {
       container,
       containerIsStarted
-} from '@src/apps/shared/backend/dependency-injection'
+} from '../../../../../src/apps/shared/backend/dependency-injection'
 import { EnvironmentArranger } from '../../../../Contexts/shared/infraestructure/persistence/arranger/EnvironmentArranger'
 import { FullBackendApp } from '@src/apps/shared/backend/FullBackendApp'
 import request from 'supertest'
 import { setTimeout } from 'timers/promises'
 import { UserMother } from '@test/Contexts/Auth/Users/domain/UserMother'
-import createToken from '@src/Contexts/Auth/shared/infraestructure/autentication/createToken'
+import createToken from '../../../../../src/Contexts/Auth/shared/infraestructure/autentication/createToken'
 
 let environmentArranger: EnvironmentArranger
 const applicacion = new FullBackendApp()

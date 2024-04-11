@@ -14,7 +14,7 @@ export class StationGetByCriteriaController implements Controller {
 
             const response = await criteriaSearcher.run(
                   filters,
-                  JSON.parse(order),
+                  order === undefined ? '' : JSON.parse(order),
                   limit ? Number(limit) : undefined,
                   offset ? Number(offset) : undefined
             )

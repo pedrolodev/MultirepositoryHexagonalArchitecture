@@ -30,7 +30,7 @@ export default class PartidoPutController implements Controller {
                   equipoFinder
             )
 
-            partidoCreator.run({
+            await partidoCreator.run({
                   id,
                   local,
                   visitante,

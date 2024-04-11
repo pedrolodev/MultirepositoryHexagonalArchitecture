@@ -1,75 +1,34 @@
-import { ContainerBuilder, YamlFileLoader } from 'node-dependency-injection'
-import path from 'path'
+import { ContainerBuilder } from 'node-dependency-injection'
+import registerMailer from './mailer'
+import registerAnalytics from '../../../../../src/apps/analytics/backend/dependency-injection/analytics'
+import registerUser from '../../../../../src/apps/auth/backend/dependency-injection/user'
+import registerEf from '../../../../../src/apps/estadisticasFutbol/backend/dependency-injection/ef'
+import registerEfTest from '../../../../../src/apps/estadisticasFutbol/backend/dependency-injection/ef_test'
+import registerUserTest from '../../../../../src/apps/auth/backend/dependency-injection/user_test'
+import registerAnalyticsTest from '../../../../../src/apps/analytics/backend/dependency-injection/analytics_test'
+import registerRadio from '../../../../../src/apps/Radio/backend/dependency-injection/radio'
 
 export default class ContainerLoader {
       container: ContainerBuilder
-      loader: YamlFileLoader
-
+      node_env: string | undefined
       constructor() {
             this.container = new ContainerBuilder()
-            this.loader = new YamlFileLoader(this.container)
+            this.node_env = process.env.NODE_ENV
       }
 
       async start(): Promise<void> {
-            await this.loader
-                  .load(
-                        path.join(
-                              __dirname,
-                              '..',
-                              '..',
-                              '..',
-                              'estadisticasFutbol',
-                              'backend',
-                              'dependency-injection',
-                              'ef.yml'
-                        )
-                  )
-                  .then(() => console.log('load ef dependency inversor'))
-            await this.loader
-                  .load(
-                        path.join(
-                              __dirname,
-                              '..',
-                              '..',
-                              '..',
-                              'Radio',
-                              'backend',
-                              'dependency-injection',
-                              'radio.yml'
-                        )
-                  )
-                  .then(() => console.log('load radio dependency inversor'))
-            await this.loader
-                  .load(
-                        path.join(
-                              __dirname,
-                              '..',
-                              '..',
-                              '..',
-                              'auth',
-                              'backend',
-                              'dependency-injection',
-                              'user.yml'
-                        )
-                  )
-                  .then(() => console.log('load auth dependency inversor'))
-            await this.loader
-                  .load(
-                        path.join(
-                              __dirname,
-                              '..',
-                              '..',
-                              '..',
-                              'analytics',
-                              'backend',
-                              'dependency-injection',
-                              'analytics.yml'
-                        )
-                  )
-                  .then(() => console.log('load analytics dependency inversor'))
-            await this.loader
-                  .load(path.join(__dirname, '.', 'mailer.yml'))
-                  .then(() => console.log('load mailer dependency inversor'))
+            registerMailer(this.container)
+            registerAnalytics(this.container)
+            registerUser(this.container)
+            registerEf(this.container)
+            registerRadio(this.container)
+            if (this.node_env === 'dev' || this.node_env === 'test') {
+                  console.log('CARGADO EL MODO DESARROLLO')
+                  registerAnalyticsTest(this.container)
+                  registerEfTest(this.container)
+                  registerUserTest(this.container)
+            }
+
             return new Promise((resolve) => resolve())
       }
 }
@@ -77,5 +36,4 @@ export default class ContainerLoader {
 const containerLoader = new ContainerLoader()
 const container = containerLoader.container
 const containerIsStarted = containerLoader.start()
-
 export { container, containerIsStarted }

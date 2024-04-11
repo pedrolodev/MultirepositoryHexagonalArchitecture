@@ -4,8 +4,7 @@ export class FullBackendApp {
       server: Server
 
       constructor() {
-            const port = process.env.PORT || '5001'
-            console.log('EL PUERTO ASIGNADO ES ' + port)
+            const port = process.env.PORT || '3000'
             this.server = new Server(port)
       }
 
@@ -19,5 +18,9 @@ export class FullBackendApp {
 
       get httpServer() {
             return this.server?.getHttpServer()
+      }
+
+      get expressApp() {
+            return this.server.getExpressApp()
       }
 }

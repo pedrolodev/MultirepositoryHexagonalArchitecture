@@ -1,10 +1,10 @@
-import { Criteria } from '@src/Contexts/shared/domain/criteria/Criteria'
+import { Criteria } from '../../../../../../src/Contexts/shared/domain/criteria/Criteria'
 import {
       MongoRepository,
       mongoDocument
 } from '../../../../shared/infraestructure/persistence/mongo/MongoRepository'
 import { User, UserPrimitives } from '../../domain/User'
-import { Repository } from '@src/Contexts/shared/domain/Repository'
+import { Repository } from '../../../../../../src/Contexts/shared/domain/Repository'
 
 export type UserDocument = Omit<UserPrimitives, 'id'> & mongoDocument
 

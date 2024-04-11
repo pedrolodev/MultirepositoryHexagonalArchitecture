@@ -11,11 +11,12 @@ const efConfig = convict({
             url: {
                   doc: 'The Mongo connection URL',
                   format: String,
-                  env: 'MONGO_URL_PRODUCTION',
+                  env: 'MONGO_URL',
                   default: ''
             }
       }
 })
 
-efConfig.loadFile(__dirname + '/' + process.env.NODE_ENV + '.json')
+efConfig.load({ mongo: { url: '' } })
+// efConfig.loadFile(__dirname + '/' + process.env.NODE_ENV + '.json')
 export default efConfig

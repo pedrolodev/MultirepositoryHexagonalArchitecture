@@ -11,12 +11,13 @@ const analyticsConfig = convict({
             url: {
                   doc: 'The Mongo connection URL',
                   format: String,
-                  env: 'MONGO_URL_PRODUCTION',
+                  env: 'MONGO_URL',
                   default: ''
             }
       }
 })
 
-analyticsConfig.loadFile(__dirname + '/' + process.env.NODE_ENV + '.json')
+analyticsConfig.load({ mongo: { url: '' } })
+// analyticsConfig.loadFile(__dirname + '/' + process.env.NODE_ENV + '.json')
 
 export default analyticsConfig

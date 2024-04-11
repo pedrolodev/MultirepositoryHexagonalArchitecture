@@ -1,11 +1,11 @@
-import { MatchFilter } from '@src/Contexts/shared/domain/criteria/filter/categories/MatchFilter'
+import { MatchFilter } from '../../../../../../src/Contexts/shared/domain/criteria/filter/categories/MatchFilter'
 import { Criteria } from '../../../../shared/domain/criteria/Criteria'
 import { Filters } from '../../../../shared/domain/criteria/filter/Filters'
 
 import { Repository } from '../../../../shared/domain/Repository'
 import { User } from '../../domain/User'
 import { UserIncorrect } from '../../domain/errors/UserIncorrect.error'
-import createToken from '@src/Contexts/Auth/shared/infraestructure/autentication/createToken'
+import createToken from '../../../../../../src/Contexts/Auth/shared/infraestructure/autentication/createToken'
 import { UserDuplicate } from '../../domain/errors/UserDuplicate.error'
 
 export class UserLogin {
