@@ -25,13 +25,7 @@ export async function middleware(request: NextRequest) {
             body: JSON.stringify(objectToSend)
       }
 
-      const response = await fetch(url, opciones)
-
-      if (response.status !== 201) {
-            throw new Error(
-                  'estatus: ' + response.status + ', error: ' + response.json()
-            )
-      }
+      await fetch(url, opciones)
 
       return NextResponse.next()
 }
