@@ -10,6 +10,7 @@ export default async function StationList() {
                         <Link
                               className={styles.item}
                               key={station.name}
+                              prefetch={false}
                               href={`/player/${encodeURIComponent(
                                     station.name
                               )}`}
