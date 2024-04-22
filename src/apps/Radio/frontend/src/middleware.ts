@@ -1,5 +1,4 @@
-'use server'
-import type { NextRequest } from 'next/server'
+import { NextResponse, type NextRequest } from 'next/server'
 import { v4 as uuidv4 } from 'uuid'
 
 const apiAddress = process.env.API_ADDRESS
@@ -26,18 +25,13 @@ export async function middleware(request: NextRequest) {
             body: JSON.stringify(objectToSend)
       }
 
-      // Realizar la solicitud PUT
-      fetch(url, opciones)
-            .then((response) => {
-                  if (response.status !== 201) {
-                        console.log('No se creo el log correctamente:')
-                        console.log(objectToSend)
-                  }
-            })
-            .catch((error) => {
-                  console.log('Error al realizar la solicitud PUT:', error)
-                  console.log(objectToSend)
-            })
+      const response = await fetch(url, opciones)
+
+      if (response.status !== 201) {
+            throw new Error('No se creo el log correctamente:')
+      }
+
+      return NextResponse.next()
 }
 
 // See "Matching Paths" below to learn more

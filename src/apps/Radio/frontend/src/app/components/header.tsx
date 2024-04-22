@@ -27,10 +27,14 @@ export default function Header() {
                   className={`${styles.header} ${isScrolled && styles.active}`}
             >
                   <nav className={styles.nav}>
-                        <Link className={styles.link} href="/">
+                        <Link className={styles.link} href="/" prefetch={false}>
                               Inicio
                         </Link>
-                        <Link className={styles.link} href="/admin">
+                        <Link
+                              className={styles.link}
+                              href="/admin"
+                              prefetch={false}
+                        >
                               Administración
                         </Link>
                   </nav>
