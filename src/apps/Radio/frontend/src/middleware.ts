@@ -28,7 +28,9 @@ export async function middleware(request: NextRequest) {
       const response = await fetch(url, opciones)
 
       if (response.status !== 201) {
-            throw new Error('No se creo el log correctamente:')
+            throw new Error(
+                  'estatus: ' + response.status + ', error: ' + response.json()
+            )
       }
 
       return NextResponse.next()
