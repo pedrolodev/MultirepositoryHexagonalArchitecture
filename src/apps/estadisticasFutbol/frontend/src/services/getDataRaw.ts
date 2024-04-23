@@ -45,7 +45,7 @@ export async function getDataRaw(
       ],
     }
 
-    const url = process.env.API_ADDRESS + '/partidos/'
+    const url = process.env.NEXT_PUBLIC_API_ADDRESS + '/partidos/'
     const response: AxiosResponse = await axios.get(url, {
       params,
     })
