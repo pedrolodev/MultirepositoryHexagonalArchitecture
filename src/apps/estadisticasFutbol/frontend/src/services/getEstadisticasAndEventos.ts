@@ -10,7 +10,7 @@ export async function getEstadisticasAndEventos(): Promise<{
   eventos: OptionEventos[]
 }> {
   try {
-    const url = 'http:192.168.1.74:5001/partidos/filters'
+    const url = process.env.API_ADDRESS + '/partidos/filters'
     const response: AxiosResponse = await axios.get(url)
     const data = response.data
     data.eventos.unshift(...eventosAcumulados)

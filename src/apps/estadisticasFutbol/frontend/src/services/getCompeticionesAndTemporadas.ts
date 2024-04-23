@@ -12,7 +12,7 @@ export async function getCompeticionesAndTemporadas(): Promise<{
         { type: 'group', field: 'competicion' },
       ],
     }
-    const url = 'http://192.168.1.74:5001/partidos/'
+    const url = process.env.API_ADDRESS + '/partidos/'
     const response: AxiosResponse = await axios.get(url, {
       params,
     })
