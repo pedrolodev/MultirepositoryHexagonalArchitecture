@@ -7,7 +7,9 @@ export async function middleware(request: NextRequest) {
       const id = uuidv4()
       const ip = request.headers.get('x-forwarded-for')
       const userAgent = request.headers.get('user-agent')
-      const time = new Date()
+      const time = new Date().toLocaleString('es-ES', {
+            timeZone: 'Europe/Madrid'
+      })
 
       const url = apiAddress + '/logs'
       const objectToSend = {
