@@ -15,7 +15,7 @@ export default function Error({
 
       return (
             <div className={styles.container}>
-                  <h2>{error.message}</h2>
+                  <h2>Sucedió un error, vuelva a intentarlo</h2>
                   <div className={styles.layout_link}>
                         <Link href="/">Volver al inicio</Link>
                   </div>
