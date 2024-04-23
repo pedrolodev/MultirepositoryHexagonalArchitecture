@@ -25,7 +25,7 @@ export async function middleware(request: NextRequest) {
             body: JSON.stringify(objectToSend)
       }
 
-      fetch(url, opciones)
+      await fetch(url, opciones)
 
       return NextResponse.next()
 }
