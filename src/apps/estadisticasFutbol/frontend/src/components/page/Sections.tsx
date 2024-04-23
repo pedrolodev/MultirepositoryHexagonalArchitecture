@@ -1,7 +1,7 @@
 'use client'
 import styles from '@/styles/components/page/sections.module.scss'
 import { useCustomSelector } from '@/store/connector'
-import MatchsChart from './Chart'
+import Chart from './Chart'
 import RenderTable from './Table'
 
 export default function Sections() {
@@ -14,7 +14,7 @@ export default function Sections() {
       }`}
     >
       <section className={styles.chart}>
-        <MatchsChart />
+        <Chart />
       </section>
       <section className={styles.table}>
         <RenderTable />

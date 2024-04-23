@@ -1,6 +1,6 @@
 'use client'
 import { useRef, useEffect } from 'react'
-import Chart from 'chart.js/auto'
+import { Chart as ChartLibrary } from 'chart.js/auto'
 import styles from '@/styles/components/page/chart.module.scss'
 import { useCustomSelector } from '../../store/connector'
 import Loader from '@/shared/components/Loader'
@@ -10,7 +10,7 @@ import parseToChart from '@/lib/app/page/chart/parseToChart'
 import getChartOptions from '@/lib/app/page/chart/getChartOptions'
 import Error from '@/shared/components/Error'
 
-export default function MatchsChart() {
+export default function Chart() {
   const { sidebar, chartButton } = useCustomSelector((state) => state.layout)
   const data = useCustomSelector((state) => state.dataFiltered)
   const filters = useCustomSelector((state) => state.filters)
@@ -38,7 +38,7 @@ export default function MatchsChart() {
 
     if (chartRef.current) {
       const options = getChartOptions(theme)
-      const chart = new Chart(chartRef.current, {
+      const chart = new ChartLibrary(chartRef.current, {
         type: chartButton,
         data: {
           labels,
