@@ -70,10 +70,7 @@ export class Server {
             this.express.use(helmet.hidePoweredBy())
             this.express.use(helmet.frameguard({ action: 'deny' }))
 
-            if (process.env.NODE_ENV === 'dev') {
-                  console.log('CORS CONFIG', 'THIS IS ONLY ACTIVATED IN DEV')
-                  this.express.use(cors())
-            }
+            this.express.use(cors())
 
             this.express.use(compress())
 
