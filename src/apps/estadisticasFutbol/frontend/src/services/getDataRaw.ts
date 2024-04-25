@@ -45,7 +45,7 @@ export async function getDataRaw(
       ],
     }
 
-    const url = 'https://backend-api-delta-eosin.vercel.app/partidos/'
+    const url = 'https://backend-api-chi.vercel.app/partidos/'
     const response: AxiosResponse = await axios.get(url, {
       params,
     })
