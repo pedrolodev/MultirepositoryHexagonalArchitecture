@@ -21,7 +21,8 @@
     }
 
     [class$='-multiValue'] {
-      background-color: map-get($colors, main);
+      background-color: map-get($colors, secondary);
+      color: map-get($colors, maintxt);
     }
 
     [class$='-MultiValueGeneric'] {

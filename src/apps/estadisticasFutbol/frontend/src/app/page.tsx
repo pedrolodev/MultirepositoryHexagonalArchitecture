@@ -14,7 +14,7 @@ export default function Home() {
   const dispatch = useCustomDispatch()
 
   useEffect(() => {
-    const theme = getCookie('theme') || 'light'
+    const theme = getCookie('theme') || 'dark'
     dispatch(initialiceTheme(theme as Themes))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])

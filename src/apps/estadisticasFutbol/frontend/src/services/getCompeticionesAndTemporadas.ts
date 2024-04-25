@@ -6,7 +6,7 @@ export async function getCompeticionesAndTemporadas(): Promise<{
   temporadas: Record<string, number[]>
 }> {
   try {
-    const params: { filters: any[] } = {
+    /*const params: { filters: any[] } = {
       filters: [
         { type: 'group', field: 'temporada' },
         { type: 'group', field: 'competicion' },
@@ -15,7 +15,7 @@ export async function getCompeticionesAndTemporadas(): Promise<{
     const url = process.env.NEXT_PUBLIC_API_ADDRESS + '/partidos/'
     const response: AxiosResponse = await axios.get(url, {
       params,
-    })
+    })*/
     const result: {
       competiciones: Option[]
       temporadas: Record<string, number[]>
@@ -24,20 +24,39 @@ export async function getCompeticionesAndTemporadas(): Promise<{
       temporadas: {},
     }
 
-    response.data.forEach(
-      (item: { id: { temporada: number; competicion: string } }) => {
-        const { temporada, competicion } = item.id
+    data.forEach((item: { id: { temporada: number; competicion: string } }) => {
+      const { temporada, competicion } = item.id
 
-        if (!result.temporadas[competicion]) {
-          result.temporadas[competicion] = [temporada]
-          result.competiciones.push({ value: competicion, label: competicion })
-        } else {
-          result.temporadas[competicion].push(temporada)
-        }
+      if (!result.temporadas[competicion]) {
+        result.temporadas[competicion] = [temporada]
+        result.competiciones.push({ value: competicion, label: competicion })
+      } else {
+        result.temporadas[competicion].push(temporada)
       }
-    )
+    })
     return result
   } catch (error) {
     throw new Error('error fetching data')
   }
 }
+
+const data = [
+  {
+    id: {
+      temporada: 2024,
+      competicion: 'La Liga',
+    },
+  },
+  {
+    id: {
+      temporada: 2023,
+      competicion: 'La Liga',
+    },
+  },
+  {
+    id: {
+      temporada: 2022,
+      competicion: 'La Liga',
+    },
+  },
+]

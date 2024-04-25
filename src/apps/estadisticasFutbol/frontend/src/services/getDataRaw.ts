@@ -1,3 +1,5 @@
+'use server'
+
 import axios, { AxiosResponse } from 'axios'
 import { PartidoOutput } from '../../../../../Contexts/EstadisticasFutbol/types/Partidos/partido'
 
@@ -45,7 +47,7 @@ export async function getDataRaw(
       ],
     }
 
-    const url = process.env.NEXT_PUBLIC_API_ADDRESS + '/partidos/'
+    const url = 'https://backend-api-delta-eosin.vercel.app/partidos/'
     const response: AxiosResponse = await axios.get(url, {
       params,
     })
