@@ -6,7 +6,7 @@ import helmet from 'helmet'
 import compress from 'compression'
 import { handleExceptions } from '../../../Contexts/shared/infraestructure/errors/express'
 import * as http from 'http'
-// import cors from 'cors'
+import cors from 'cors'
 // import { registerRoutes } from './routes/registerRoutes'
 import { register as registerStatus } from './routes/status.route'
 import { register as registerSendMail } from './routes/sendMail.route'
@@ -70,7 +70,7 @@ export class Server {
             this.express.use(helmet.hidePoweredBy())
             this.express.use(helmet.frameguard({ action: 'deny' }))
 
-            // this.express.use(cors())
+            this.express.use(cors())
 
             this.express.use(compress())
 

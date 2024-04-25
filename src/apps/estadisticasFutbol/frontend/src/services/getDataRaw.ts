@@ -1,5 +1,3 @@
-'use server'
-
 import axios, { AxiosResponse } from 'axios'
 import { PartidoOutput } from '../../../../../Contexts/EstadisticasFutbol/types/Partidos/partido'
 
