@@ -1,4 +1,4 @@
-'user server'
+'user-server'
 import axios from 'axios'
 import { cookies } from 'next/headers'
 import decodeExpiration from '../lib/decodeExpiration'
