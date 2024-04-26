@@ -1,6 +1,5 @@
 import { useCustomDispatch, useCustomSelector } from '@/store/connector'
 import { getCompeticionesAndTemporadas } from '@/services/getCompeticionesAndTemporadas'
-import { getDataRaw } from '@/services/getDataRaw'
 import { getEstadisticasAndEventos } from '@/services/getEstadisticasAndEventos'
 import Loader from '@/shared/components/Loader'
 import styles from '@/styles/components/page/filters/dataLoader.module.scss'
@@ -16,7 +15,7 @@ import {
 } from '../../../store/slices/layout.slice'
 import applyFilters from '@/lib/app/page/filters/applyFilters'
 
-export default function DataLoader() {
+export default function DataLoader({ action }) {
   const dispatch = useCustomDispatch()
   const { temporadas, competiciones } = useCustomSelector(
     (state) => state.filtersSelected
@@ -36,7 +35,7 @@ export default function DataLoader() {
     dispatch(setFiltersSelected({ key: 'jornadas', value: [] }))
     dispatch(setLoading(true))
     dispatch(setError(false))
-    getDataRaw(temporadas, competiciones)
+    action(temporadas, competiciones)
       .then((values) => {
         dispatch(setError(false))
         dispatch(setDataRaw(values))

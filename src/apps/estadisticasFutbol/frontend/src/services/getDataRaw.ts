@@ -1,5 +1,8 @@
+'use server'
 import axios, { AxiosResponse } from 'axios'
 import { PartidoOutput } from '../../../../../Contexts/EstadisticasFutbol/types/Partidos/partido'
+
+const apiAddress = process.env.API_ADDRESS
 
 export async function getDataRaw(
   temporada: number,
@@ -44,8 +47,7 @@ export async function getDataRaw(
         },
       ],
     }
-
-    const url = 'https://backend-api-chi.vercel.app/partidos/'
+    const url = apiAddress + '/partidos'
     const response: AxiosResponse = await axios.get(url, {
       params,
     })

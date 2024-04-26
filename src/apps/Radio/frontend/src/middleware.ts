@@ -16,7 +16,8 @@ export async function middleware(request: NextRequest) {
             ip,
             userAgent,
             time,
-            id
+            id,
+            project: 'radio'
       }
 
       const opciones = {

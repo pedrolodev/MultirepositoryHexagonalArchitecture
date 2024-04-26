@@ -31,7 +31,8 @@ export default class MongoLogsRepository
                         id: document._id,
                         ip: document.ip,
                         userAgent: document.userAgent,
-                        time: document.time
+                        time: document.time,
+                        project: document.project
                   }
             })
       }

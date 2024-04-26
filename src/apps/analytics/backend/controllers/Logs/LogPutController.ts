@@ -5,7 +5,7 @@ import { LogCreator } from '../../../../../../src/Contexts/Analytics/Logs/applic
 
 export default class LogPutController implements Controller {
       async run(req: Request, res: Response) {
-            const { id, time, userAgent, ip } = req.body
+            const { id, time, userAgent, ip, project } = req.body
 
             const logRepository = container.get('analytics.logs.repository')
 
@@ -15,7 +15,8 @@ export default class LogPutController implements Controller {
                   id,
                   time,
                   userAgent,
-                  ip
+                  ip,
+                  project
             })
             res.status(201).send()
       }

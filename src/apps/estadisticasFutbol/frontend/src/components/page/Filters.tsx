@@ -14,6 +14,7 @@ import FilterTemporadas from './filters/FilterTemporadas'
 import MenuBar from './filters/MenuBar'
 import { setFilters } from '../../store/slices/filters.slice'
 import getValuesForFiltersFromRaw from '@/lib/app/page/filters/getValuesForFiltersFromRaw'
+import { getDataRaw } from '../../services/getDataRaw'
 
 export default function Filters() {
   const sidebar = useCustomSelector((state) => state.layout.sidebar)
@@ -35,7 +36,7 @@ export default function Filters() {
         <FilterItem header="Selección Datos">
           <FilterCompeticiones />
           <FilterTemporadas />
-          <DataLoader />
+          <DataLoader action={getDataRaw} />
         </FilterItem>
         <FilterItem header="Eventos">
           <FilterEventos />
