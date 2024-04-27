@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from 'axios'
+// import axios, { AxiosResponse } from 'axios'
 import { Option } from '@/types/app/page/Filter/option'
 
 export async function getCompeticionesAndTemporadas(): Promise<{
@@ -6,7 +6,7 @@ export async function getCompeticionesAndTemporadas(): Promise<{
   temporadas: Record<string, number[]>
 }> {
   try {
-    /*const params: { filters: any[] } = {
+    /* const params: { filters: any[] } = {
       filters: [
         { type: 'group', field: 'temporada' },
         { type: 'group', field: 'competicion' },
@@ -15,7 +15,7 @@ export async function getCompeticionesAndTemporadas(): Promise<{
     const url = process.env.NEXT_PUBLIC_API_ADDRESS + '/partidos/'
     const response: AxiosResponse = await axios.get(url, {
       params,
-    })*/
+    }) */
     const result: {
       competiciones: Option[]
       temporadas: Record<string, number[]>

@@ -21,7 +21,8 @@
     "react-dom": "^18.2.0",
     "react-redux": "^8.1.1",
     "react-select": "^5.7.3",
-    "typescript": "5.3.2"
+    "typescript": "5.3.2",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@types/node": "20.3.1",

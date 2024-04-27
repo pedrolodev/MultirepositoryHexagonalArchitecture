@@ -1,22 +1,22 @@
 import { eventosAcumulados } from '@/config/domain/partido/eventosAcumulated'
-import {
+/* import {
   OptionEstadisticas,
   OptionEventos,
-} from '@/types/app/page/Filter/option'
+} from '@/types/app/page/Filter/option' */
 
-/*export async function getEstadisticasAndEventos(): Promise<{
+/* export async function getEstadisticasAndEventos(): Promise<{
   estadisticas: OptionEstadisticas[]
   eventos: OptionEventos[]
-}> {*/
+}> { */
 export async function getEstadisticasAndEventos() {
-  /*try {
+  /* try {
     const url = process.env.NEXT_PUBLIC_API_ADDRESS + '/partidos/filters'
-    const response: AxiosResponse = await axios.get(url)*/
+    const response: AxiosResponse = await axios.get(url) */
   data.eventos.unshift(...eventosAcumulados)
   return data
-  /*} catch (error) {
+  /* } catch (error) {
     throw new Error('error fetching data')
-  }*/
+  } */
 }
 
 const data = {
