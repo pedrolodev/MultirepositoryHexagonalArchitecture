@@ -1,19 +1,23 @@
-'use server'
-import type { NextRequest } from 'next/server'
+import { NextResponse, type NextRequest } from 'next/server'
 import { v4 as uuidv4 } from 'uuid'
+
+const apiAddress = process.env.API_ADDRESS
 
 export async function middleware(request: NextRequest) {
       const id = uuidv4()
       const ip = request.headers.get('x-forwarded-for')
       const userAgent = request.headers.get('user-agent')
-      const time = new Date()
+      const time = new Date().toLocaleString('es-ES', {
+            timeZone: 'Europe/Madrid'
+      })
 
-      const url = 'http://localhost:5001/logs'
+      const url = apiAddress + '/logs'
       const objectToSend = {
             ip,
             userAgent,
             time,
-            id
+            id,
+            project: 'main'
       }
 
       const opciones = {
@@ -24,18 +28,13 @@ export async function middleware(request: NextRequest) {
             body: JSON.stringify(objectToSend)
       }
 
-      // Realizar la solicitud PUT
-      fetch(url, opciones)
-            .then((response) => {
-                  if (response.status !== 201) {
-                        console.log('No se creo el log correctamente:')
-                        console.log(objectToSend)
-                  }
-            })
-            .catch((error) => {
-                  console.log('Error al realizar la solicitud PUT:', error)
-                  console.log(objectToSend)
-            })
+      try {
+            await fetch(url, opciones)
+      } catch (e) {
+            console.log('ERROR', e)
+      }
+
+      return NextResponse.next()
 }
 
 // See "Matching Paths" below to learn more

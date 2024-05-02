@@ -20,8 +20,8 @@
 }
 
 .item {
-      width: 20vw;
-      height: 300px;
+      width: 15vw;
+      height: 50%;
       list-style-type: none;
       position: absolute;
       top: 50%;
@@ -46,6 +46,26 @@
             height 0.75s;
 }
 
+.link {
+      display: flex;
+      flex-direction: row;
+      flex: 1;
+      align-items: center;
+}
+.link span {
+      width: 25%;
+}
+
+.active_content {
+      opacity: 0;
+      animation: fadeIn 0.5s forwards;
+      animation-delay: 0.5s;
+}
+
+.unactive_content {
+      opacity: 0;
+}
+
 .firstPrev {
       z-index: 1;
       top: 0;
@@ -63,7 +83,7 @@
             height 0.75s, opacity 1s;
 }
 .secondNext {
-      left: 96vw;
+      left: 90vw;
       transition: transform 0.1s, left 0.75s, top 0.75s, width 0.75s,
             height 0.75s, opacity 1s;
 }
@@ -86,11 +106,20 @@
       font: 400 0.85rem helvetica, sans-serif;
       color: white;
       text-shadow: 0 3px 8px rgba(0, 0, 0, 0.5);
-      background-color: rgba(0, 0, 0, 0.4);
+      background-color: rgba(0, 0, 0, 0.7);
       padding: 2vw;
       border-radius: 20px;
       display: none;
-      transition: left 1s;
+      transition: opacity 1s, left 1s;
+}
+
+@keyframes fadeIn {
+      0% {
+            opacity: 0;
+      }
+      100% {
+            opacity: 1;
+      }
 }
 
 .content > .title {
@@ -114,6 +143,7 @@
       border: 2px solid white;
       border-radius: 0.25rem;
       padding: 0.75rem;
+      margin: 1%;
       cursor: pointer;
       transition: all 0.5s ease;
       position: relative;
@@ -131,15 +161,7 @@
 
 .firstNext .content,
 .secondNext .content {
-      display: block;
-      top: 0;
-      left: 0;
-      width: 100%;
-      align-self: center;
-      position: relative;
-      padding: 1vw;
-      transform: translateY(0%);
-      border-radius: 20px 20px 0 0;
+      display: none;
 }
 
 .firstNext .description,

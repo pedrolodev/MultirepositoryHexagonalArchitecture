@@ -14,8 +14,8 @@
 .nav {
       display: flex;
       height: 100%;
+      width: auto;
       white-space: nowrap;
-      width: 90%;
 }
 
 .link {
@@ -24,7 +24,7 @@
       height: 100%;
       text-decoration: none;
       width: 100%;
-      padding: 2px;
+      padding: 1vw;
       color: var(--primary-text);
       font-weight: bold;
       transition: color 0.4s ease;
@@ -46,4 +46,10 @@
             var(--highlight) 1%,
             rgba(0, 0, 0, 0)
       );
+}
+
+@media only screen and (max-width: 600px) {
+      .nav {
+            width: 100%;
+      }
 }

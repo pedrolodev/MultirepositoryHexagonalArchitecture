@@ -20,7 +20,6 @@ export async function middleware(request: NextRequest) {
     project: 'ef',
   }
 
-  console.log(objectToSend)
   const opciones = {
     method: 'PUT',
     headers: {
@@ -30,8 +29,7 @@ export async function middleware(request: NextRequest) {
   }
 
   try {
-    const response = await fetch(url, opciones)
-    console.log('response', response.text(), response.status)
+    await fetch(url, opciones)
   } catch (e) {
     console.log('ERROR', e)
   }

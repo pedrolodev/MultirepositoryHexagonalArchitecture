@@ -76,9 +76,14 @@ export default function Carousel() {
                                                       } ${
                                                             activeSection !==
                                                                   'proyectos' &&
+                                                            index ===
+                                                                  indexLoop &&
+                                                            styles.no_visible_left
+                                                      }
+                                                      ${
                                                             index === indexLoop
-                                                                  ? styles.no_visible_left
-                                                                  : undefined
+                                                                  ? styles.active_content
+                                                                  : styles.unactive_content
                                                       } `}
                                                 >
                                                       <h2
@@ -97,15 +102,64 @@ export default function Carousel() {
                                                                   proyecto.description
                                                             }
                                                       </p>
-                                                      <Link
-                                                            className={
-                                                                  styles.button
-                                                            }
-                                                            href={proyecto.link}
-                                                            target="_blank"
-                                                      >
-                                                            Visitar
-                                                      </Link>
+                                                      {proyecto.link && (
+                                                            <div
+                                                                  className={
+                                                                        styles.link
+                                                                  }
+                                                            >
+                                                                  <span>
+                                                                        Web:{' '}
+                                                                  </span>
+                                                                  <Link
+                                                                        className={
+                                                                              styles.button
+                                                                        }
+                                                                        href={
+                                                                              proyecto.link
+                                                                        }
+                                                                        target="_blank"
+                                                                  >
+                                                                        {
+                                                                              proyecto.link
+                                                                        }
+                                                                  </Link>
+                                                            </div>
+                                                      )}
+
+                                                      {proyecto.code.length >
+                                                            0 &&
+                                                            proyecto.code.map(
+                                                                  (repo) => {
+                                                                        return (
+                                                                              <div
+                                                                                    key={
+                                                                                          repo.url
+                                                                                    }
+                                                                                    className={
+                                                                                          styles.link
+                                                                                    }
+                                                                              >
+                                                                                    <span>
+                                                                                          Código:{' '}
+                                                                                    </span>
+                                                                                    <Link
+                                                                                          className={
+                                                                                                styles.button
+                                                                                          }
+                                                                                          href={
+                                                                                                repo.url
+                                                                                          }
+                                                                                          target="_blank"
+                                                                                    >
+                                                                                          {
+                                                                                                repo.name
+                                                                                          }
+                                                                                    </Link>
+                                                                              </div>
+                                                                        )
+                                                                  }
+                                                            )}
                                                 </div>
                                           </li>
                                     )
