@@ -1,6 +1,7 @@
 node_modules
 dist
 PRUEBA
+main
 .env
 .vscode
 **/*.real
