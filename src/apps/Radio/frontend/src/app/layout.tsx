@@ -8,7 +8,10 @@ import Footer from './components/footer'
 export const metadata: Metadata = {
       title: 'Radio App',
       description:
-            'El lugar donde poder escuchar la radio que quieras con retardo'
+            'El lugar donde poder escuchar la radio que quieras con retardo',
+      icons: {
+            icon: '/favicon.ico'
+      }
 }
 
 export default async function RootLayout({
